@@ -1,0 +1,21 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+  	<button class="side-nav-toggle" (click)="drawer.toggle()">
+  		<i class="fas fa-bars"></i>
+  	</button>
+    <span><img class="logo" src="https://www.meeting-point.com/wp-content/uploads/2016/01/Logo_retina_mobile.png"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #drawer mode="side" color="primary" opened role="navigation">
+    <mat-nav-list>
+    	<ng-container *ngFor='let city of cities'>
+    		<a mat-list-item (click)='changeExcursions(city)'>{{ city }}</a>
+    	</ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+  	<app-excursions [excursions]="dataSource" [city]="cityName" *ngIf="!loading"></app-excursions>
+    <app-loader *ngIf="loading"></app-loader>
+  </mat-sidenav-content>
+</mat-sidenav-container>

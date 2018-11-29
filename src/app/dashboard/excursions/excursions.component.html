@@ -1,0 +1,54 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <h3>{{city}}</h3>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="content" *ngIf="!displayCreate">
+  <div class="button-container">
+    <button mat-raised-button color="primary" class="create-button" (click)="toggleCreate()">Add Excursion</button>
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="excursions">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="duration">
+        <mat-header-cell *matHeaderCellDef> Duration </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.duration}} min</mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="guide">
+        <mat-header-cell *matHeaderCellDef> Guide </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.guide}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="drop">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button class="drop" (click)="delete(element.id)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>
+
+<div class="content" *ngIf="displayCreate">
+  <app-new-excursion [city]="city"></app-new-excursion>
+</div>

@@ -1,0 +1,29 @@
+<mat-card>
+	<div class="container">
+		<div class="example-container">
+		  <mat-form-field>
+		    <input matInput placeholder="Name" [(ngModel)]="name">
+		  </mat-form-field>
+
+		  <mat-form-field>
+		    <textarea matInput placeholder="Description" [(ngModel)]="description"></textarea>
+		  </mat-form-field>
+
+		  <mat-form-field>
+		    <input matInput placeholder="Duration" [(ngModel)]="duration" type="number">
+		  </mat-form-field>
+
+		  <mat-form-field>
+			  <mat-select placeholder="Guide" name="guide" [(ngModel)]="guide">
+			    <mat-option *ngFor="let guide of guides" [value]="guide.name">
+			      {{ guide.name }}
+			    </mat-option>
+			  </mat-select>
+			</mat-form-field>
+		</div>
+		<div class="button-container">
+	    <button mat-raised-button color="primary" class="create-button" (click)="create()">Add Excursion</button>
+	    <button mat-raised-button class="create-button" (click)="cancel()">CANCEL</button>
+	  </div>
+	</div>
+</mat-card>

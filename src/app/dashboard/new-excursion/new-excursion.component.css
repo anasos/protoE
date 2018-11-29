@@ -1,0 +1,24 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5%;
+  padding-right: 20%;
+}
+
+.example-container > * {
+  width: 90%;
+}
+
+.create-button{
+	float: right;
+	margin-left: 2%;
+}
+
+.button-container{
+	height: 8vh;
+	width: 80%;
+}
+
+.container{
+	padding: 3vh 3%;
+}
