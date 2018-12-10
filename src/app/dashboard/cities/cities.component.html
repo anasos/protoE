@@ -1,0 +1,5 @@
+<div class="row container">
+	<div *ngFor="let city of cities" class="col-sm-4 city-card-container" (click)="goToCity(city)">
+		<mat-card>{{city}}</mat-card>
+	</div>
+</div>

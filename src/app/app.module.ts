@@ -47,6 +47,7 @@ import { ExcursionService } from './excursion.service';
 import { LoaderComponent } from './loader/loader.component';
 import { ShowExcursionComponent } from './dashboard/show-excursion/show-excursion.component';
 import { EditExcursionComponent } from './dashboard/edit-excursion/edit-excursion.component';
+import { CitiesComponent } from './dashboard/cities/cities.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { EditExcursionComponent } from './dashboard/edit-excursion/edit-excursio
     NewExcursionComponent,
     LoaderComponent,
     ShowExcursionComponent,
-    EditExcursionComponent
+    EditExcursionComponent,
+    CitiesComponent
   ],
   imports: [
     BrowserModule,

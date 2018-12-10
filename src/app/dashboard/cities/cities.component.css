@@ -1,0 +1,9 @@
+.container{
+	padding: 5%;
+	padding-top: 5vh;
+}
+
+.city-card-container{
+	padding-top: 20px;
+	cursor: pointer;
+}

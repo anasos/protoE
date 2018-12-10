@@ -5,6 +5,7 @@ import { ShowExcursionComponent } from './dashboard/show-excursion/show-excursio
 import { NewExcursionComponent } from './dashboard/new-excursion/new-excursion.component';
 import { ExcursionsComponent } from './dashboard/excursions/excursions.component';
 import { EditExcursionComponent } from './dashboard/edit-excursion/edit-excursion.component';
+import { CitiesComponent } from './dashboard/cities/cities.component';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: ':excursionId/show', component: ShowExcursionComponent }, 
       { path: ':excursionId/edit', component: EditExcursionComponent }, 
       { path: 'new', component: NewExcursionComponent }, 
+      { path: '', component: CitiesComponent },
     ]
   },
 ];
