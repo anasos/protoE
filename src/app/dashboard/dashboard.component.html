@@ -10,12 +10,14 @@
   <mat-sidenav #drawer mode="side" color="primary" opened role="navigation">
     <mat-nav-list>
     	<ng-container *ngFor='let city of cities'>
-    		<a mat-list-item (click)='changeExcursions(city)'>{{ city }}</a>
+    		<a mat-list-item [routerLink]="['./city', city]">{{ city }}</a>
     	</ng-container>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-  	<app-excursions [excursions]="dataSource" [city]="cityName" *ngIf="!loading"></app-excursions>
+    <router-outlet *ngIf="!loading"></router-outlet>
+    <!-- <app-show-excursion></app-show-excursion>
+  	<app-excursions [excursions]="dataSource" [city]="cityName" *ngIf="!loading"></app-excursions> -->
     <app-loader *ngIf="loading"></app-loader>
   </mat-sidenav-content>
 </mat-sidenav-container>

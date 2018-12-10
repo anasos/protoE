@@ -1,4 +1,4 @@
-<mat-card class="card-new">
+<mat-card class="card-edit">
 	<div class="container">
 		<div class="example-container">
 		  <mat-form-field>
@@ -6,7 +6,7 @@
 		  </mat-form-field>
 
 		  <mat-form-field>
-		    <textarea matInput placeholder="Description" [(ngModel)]="description"></textarea>
+		    <textarea matInput placeholder="Description"  rows="5" [(ngModel)]="description"></textarea>
 		  </mat-form-field>
 
 		  <mat-form-field>
@@ -22,7 +22,7 @@
 			</mat-form-field>
 		</div>
 		<div class="button-container">
-	    <button mat-raised-button color="primary" class="create-button" (click)="create()">Add Excursion</button>
+	    <button mat-raised-button color="primary" class="create-button" (click)="create()"> Edit</button>
 	    <button mat-raised-button class="create-button" (click)="cancel()">CANCEL</button>
 	  </div>
 	</div>

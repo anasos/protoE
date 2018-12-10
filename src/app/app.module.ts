@@ -45,6 +45,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { NewExcursionComponent } from './dashboard/new-excursion/new-excursion.component';
 import { ExcursionService } from './excursion.service';
 import { LoaderComponent } from './loader/loader.component';
+import { ShowExcursionComponent } from './dashboard/show-excursion/show-excursion.component';
+import { EditExcursionComponent } from './dashboard/edit-excursion/edit-excursion.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { LoaderComponent } from './loader/loader.component';
     DashboardComponent,
     ExcursionsComponent,
     NewExcursionComponent,
-    LoaderComponent
+    LoaderComponent,
+    ShowExcursionComponent,
+    EditExcursionComponent
   ],
   imports: [
     BrowserModule,

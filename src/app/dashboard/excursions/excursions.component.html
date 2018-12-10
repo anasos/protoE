@@ -6,7 +6,7 @@
 
 <div class="content" *ngIf="!displayCreate">
   <div class="button-container">
-    <button mat-raised-button color="primary" class="create-button" (click)="toggleCreate()">Add Excursion</button>
+    <button mat-raised-button color="primary" class="create-button" [routerLink]="['/dashboard/new']">Add Excursion</button>
   </div>
 
   <div class="example-container mat-elevation-z8">
@@ -40,6 +40,15 @@
           <button class="drop" (click)="delete(element.id)">
             <i class="fas fa-trash"></i>
           </button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="show">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <a class="drop" [routerLink]="[ '/dashboard', element.id, 'show']">
+            <i class="fas fa-eye"></i>
+          </a>
         </mat-cell>
       </ng-container>
 

@@ -9,7 +9,7 @@ export class ExcursionService {
 									'excursions':
 									[
 										{
-											'id': '142',
+											'id': '1452',
 											'name': 'Bab Marrakech',
 											'duration': '30',
 											'guide': 'Brahim Brahim'
@@ -18,7 +18,8 @@ export class ExcursionService {
 											'id': '125',
 											'name': 'Mosquee Hassan 2',
 											'duration': '45',
-											'guide': 'Karim'
+											'guide': 'Karim',
+											'image': "http://www.womens-travel-club.com/img/Morocco2.jpg"
 										},
 										{
 											'id': '14',
@@ -39,13 +40,13 @@ export class ExcursionService {
 									'excursions':
 									[
 										{
-											'id': '142',
+											'id': '14112',
 											'name': 'Dar Debagh',
 											'duration': '30',
 											'guide': 'Brahim Brahim'
 										},
 										{
-											'id': '142',
+											'id': '14982',
 											'name': 'Bab Marrakech',
 											'duration': '30',
 											'guide': 'Brahim Brahim'
@@ -72,41 +73,45 @@ export class ExcursionService {
 											'id': '142',
 											'name': 'Bab Doukala',
 											'duration': '30',
-											'guide': 'Brahim Brahim'
+											'guide': 'Brahim Brahim',
+											'image': "https://p4.storage.canalblog.com/40/75/1394830/109884907_o.jpg"
 										},
 										{	
-											'id': '125',
+											'id': '1235',
 											'name': 'Bab Reb',
 											'duration': '45',
-											'guide': 'Karim'
+											'guide': 'Karim',
+											'image': "https://www.marrakech-riad.co.uk/wp-content/uploads/2014/07/P1000161-1024x768.jpeg"
 										},
 										{
-											'id': '14',
+											'id': '1401',
 											'name': 'Menara',
 											'duration': '90',
-											'guide': 'Hicham Hicham'
+											'guide': 'Hicham Hicham',
+											'image': 'https://www.infomediaire.net/wp-content/uploads/2018/10/monuments-historiques.jpg'
 										},
 										{
-											'id': '74',
+											'id': '754',
 											'name': 'Koutoubia',
 											'duration': '30',
-											'guide': 'Brahim Brahim'
+											'guide': 'Brahim Brahim',
+											'image': 'http://marrakech.viaprestige-holidays.com/wp-content/uploads/koutoubia-marrakech-1-e1497864599319.jpg'
 										},
 										{	
-											'id': '15',
+											'id': '1511',
 											'name': 'Jamee El Fena',
 											'duration': '45',
 											'guide': 'Karim'
 										},
 										{
-											'id': '1',
+											'id': '1058',
 											'name': 'Palais El Bdiia',
 											'duration': '90',
 											'guide': 'Hicham Hicham'
 										},
 										{
-											'id': '79',
-											'name': 'Agdla',
+											'id': '7459',
+											'name': 'Agdal',
 											'duration': '10',
 											'guide': 'Dounia Brahim'
 										}
@@ -117,7 +122,7 @@ export class ExcursionService {
 									'excursions':
 									[
 										{
-											'id': '142',
+											'id': '1412',
 											'name': 'Bab El had',
 											'duration': '30',
 											'guide': 'Brahim Brahim'
@@ -153,7 +158,7 @@ export class ExcursionService {
 									'excursions':
 									[
 										{
-											'id': '142',
+											'id': '1342',
 											'name': 'Haffa',
 											'duration': '30',
 											'guide': 'Brahim Brahim'
@@ -181,6 +186,24 @@ export class ExcursionService {
 
   getExcursions(){
   	return this.excursions;
+  }
+
+  getExcursion(id):any{  	
+  	let result = {};
+   	this.excursions.forEach( (item, index) => {
+		  	item.excursions.forEach((exc,i) =>{
+		  		if(exc.id === id) {
+		  			result = exc;
+		  		}
+		  	});
+		});
+
+		return result;
+  }
+
+  getExcursionsofCity(_city) : any[]{
+    let self = this;
+    return self.excursions.find( city => city.city === _city).excursions;
   }
 
   addExcursion(city, excursion){

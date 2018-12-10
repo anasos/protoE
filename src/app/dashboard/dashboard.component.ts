@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExcursionService } from '../excursion.service';
+import { ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,8 @@ export class DashboardComponent implements OnInit {
 	cityName = "Casablanca";
 	loading = false;
 
-  constructor(private excursionService: ExcursionService) { 
+  constructor(private excursionService: ExcursionService, 
+    private activateRoute: ActivatedRoute) { 
   	let self = this;
   	this.excursions = this.excursionService.getExcursions();
   	this.excursionService.excursionChanged.subscribe( e => {
@@ -30,8 +32,11 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    let city = this.activateRoute.snapshot.params['cityName'];
+    console.log('city', city);
   	this.dataSource = this.getExcursions("Casablanca");
   }
+
 
   hideLoading(){
   	this.loading = false;

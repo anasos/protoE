@@ -1,0 +1,13 @@
+img{
+	height: 50vh;
+}
+
+p{
+	font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.17;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
