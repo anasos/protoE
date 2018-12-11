@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExcursionService } from '../../excursion.service';
-import { ActivatedRoute } from '@angular/router'; 
+import { ActivatedRoute, Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-edit-excursion',
@@ -46,7 +46,8 @@ export class EditExcursionComponent implements OnInit {
              }
           ];
 
-  constructor(private excursionService: ExcursionService, private activeRoute: ActivatedRoute) { 
+  constructor(private excursionService: ExcursionService, private router: Router,
+    private activeRoute: ActivatedRoute) { 
   }
 
   ngOnInit() {
@@ -58,6 +59,18 @@ export class EditExcursionComponent implements OnInit {
     `;
     this.duration = this.excursion.duration;
   	this.guide = this.excursion.guide;
+  }
+
+  edit(){
+    let data = {
+      'name': this.name,
+      'description': this.description,
+      'duration': this.duration,
+      'guide': this.guide
+    }
+    let id = this.activeRoute.snapshot.params['excursionId'];
+    this.excursionService.editExcursion(id,data);
+    this.router.navigate(['/dashboard', id,'show']);
   }
 
 }

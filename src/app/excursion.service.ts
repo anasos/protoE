@@ -31,7 +31,8 @@ export class ExcursionService {
 											'id': '29',
 											'name': 'Eglise',
 											'duration': '10',
-											'guide': 'Dounia Brahim'
+											'guide': 'Dounia Brahim',
+											'image': 'http://www.desdomesetdesminarets.fr/wp-content/uploads/2015/01/cathedrale-casablanca-sacre-coeur.jpg'
 										}
 									]
 						},
@@ -43,22 +44,25 @@ export class ExcursionService {
 											'id': '14112',
 											'name': 'Dar Debagh',
 											'duration': '30',
-											'guide': 'Brahim Brahim'
+											'guide': 'Brahim Brahim',
+											'image': "http://www.alentour.net/img/gallery/180.jpg"
 										},
 										{
 											'id': '14982',
-											'name': 'Bab Marrakech',
+											'name': 'Médersa Bou Inania',
 											'duration': '30',
-											'guide': 'Brahim Brahim'
+											'guide': 'Brahim Brahim',
+											'image': "https://voyages.michelin.fr/sites/default/files/styles/poi_slideshow_big/public/images/travel_guide/NX-18049.jpg?itok=z5gKvZdt"
 										},
 										{
-											'id': '14',
-											'name': 'Sidi Maarouf',
+											'id': '1334',
+											'name': 'Médersa Attarine',
 											'duration': '90',
-											'guide': 'Hicham Hicham'
+											'guide': 'Hicham Hicham',
+											'image': "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Al-Attarine_Madrasa_%288753523807%29.jpg/800px-Al-Attarine_Madrasa_%288753523807%29.jpg"
 										},
 										{
-											'id': '29',
+											'id': '2119',
 											'name': 'Eglise',
 											'duration': '10',
 											'guide': 'Dounia Brahim'
@@ -122,31 +126,31 @@ export class ExcursionService {
 									'excursions':
 									[
 										{
-											'id': '1412',
+											'id': '14312',
 											'name': 'Bab El had',
 											'duration': '30',
 											'guide': 'Brahim Brahim'
 										},
 										{	
-											'id': '125',
+											'id': '12530',
 											'name': 'Bab Reb',
 											'duration': '45',
 											'guide': 'Karim'
 										},
 										{
-											'id': '14',
+											'id': '1004',
 											'name': 'Hassan',
 											'duration': '10',
 											'guide': 'Hicham Hicham'
 										},
 										{
-											'id': '1',
+											'id': '104',
 											'name': 'Palais El Bdiia',
 											'duration': '90',
 											'guide': 'Hicham Hicham'
 										},
 										{
-											'id': '79',
+											'id': '7009',
 											'name': 'Agdla',
 											'duration': '10',
 											'guide': 'Dounia Brahim'
@@ -161,19 +165,22 @@ export class ExcursionService {
 											'id': '1342',
 											'name': 'Haffa',
 											'duration': '30',
-											'guide': 'Brahim Brahim'
+											'guide': 'Brahim Brahim',
+											'image': 'https://media-cdn.tripadvisor.com/media/photo-s/03/d7/21/a2/tavolo-vista-mare.jpg'
 										},
 										{	
-											'id': '125',
-											'name': 'Place 1',
+											'id': '10025',
+											'name': "Grottes d'Hercule",
 											'duration': '45',
-											'guide': 'Karim'
+											'guide': 'Karim',
+											'image': "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Cuevas_de_H%C3%A9rcules%2C_Cabo_Espartel%2C_Marruecos%2C_2015-12-11%2C_DD_22-24_HDR.JPG/256px-Cuevas_de_H%C3%A9rcules%2C_Cabo_Espartel%2C_Marruecos%2C_2015-12-11%2C_DD_22-24_HDR.JPG"
 										},
 										{
-											'id': '79',
-											'name': 'Agdla',
+											'id': '7859',
+											'name': 'Cap Spartel',
 											'duration': '10',
-											'guide': 'Dounia Brahim'
+											'guide': 'Dounia Brahim',
+											'image': "https://media-cdn.tripadvisor.com/media/photo-s/13/09/c0/d9/cap-spartel.jpg"
 										}
 									]
 						}
@@ -204,6 +211,19 @@ export class ExcursionService {
   getExcursionsofCity(_city) : any[]{
     let self = this;
     return self.excursions.find( city => city.city === _city).excursions;
+  }
+
+  editExcursion(id, data){
+  	let result = {};
+   	this.excursions.forEach( (item, index) => {
+		  	item.excursions.forEach((exc,i) =>{
+		  		if(exc.id === id) {
+		  			exc.duration = data.duration;
+		  			exc.guide = data.guide;
+		  			exc.name = data.name;
+		  		}
+		  	});
+		});
   }
 
   addExcursion(city, excursion){
