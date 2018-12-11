@@ -15,10 +15,9 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: 'city/:cityName', component: ExcursionsComponent }, 
-      { path: 'new', component: NewExcursionComponent }, 
+      { path: ':cityName/new', component: NewExcursionComponent }, 
       { path: ':excursionId/show', component: ShowExcursionComponent }, 
       { path: ':excursionId/edit', component: EditExcursionComponent }, 
-      { path: 'new', component: NewExcursionComponent }, 
       { path: '', component: CitiesComponent },
     ]
   },

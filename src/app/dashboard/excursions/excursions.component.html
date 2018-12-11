@@ -6,7 +6,7 @@
 
 <div class="content" *ngIf="!displayCreate">
   <div class="button-container">
-    <button mat-raised-button color="primary" class="create-button" [routerLink]="['/dashboard/new']">Add Excursion</button>
+    <button mat-raised-button color="primary" class="create-button" [routerLink]="['/dashboard', city, 'new']">Add Excursion</button>
   </div>
 
   <div class="example-container mat-elevation-z8">

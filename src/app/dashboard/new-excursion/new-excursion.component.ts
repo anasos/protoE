@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ExcursionService } from '../../excursion.service';
+import { ActivatedRoute, Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-new-excursion',
@@ -14,7 +15,9 @@ export class NewExcursionComponent implements OnInit {
   duration = "";
   @Input() city;
 
-  constructor(private excursionService: ExcursionService) { 
+  constructor(private excursionService: ExcursionService, private activatedRoute: ActivatedRoute,
+          private router: Router) {
+    this.city = this.activatedRoute.snapshot.params['cityName'];
   }
 
   guides = [
@@ -60,8 +63,9 @@ export class NewExcursionComponent implements OnInit {
       'duration': this.duration,
       'guide': this.guide
     }
-
+    console.log(this.city);
     this.excursionService.addExcursion(this.city, excursion);
+    this.router.navigate(['/dashboard/city',this.city]);
   }
 
   cancel(){
